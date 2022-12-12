@@ -1,31 +1,27 @@
 {% extends 'layouts/dash.html' %}
 
 {% block content %}
-<div class="hero min-h-screen bg-base-200">
-    <div class="hero-content text-center">
-        <div class="max-w-md">
-            <h1 class="text-5xl font-bold">Portafolio</h1>
-            <p class="py-6">Para agregar debe iniciar sesión.</p>
+
+<h1 class="mt-4 text-5xl font-bold">Portafolio</h1>
+<div class="alert alert-primary">Para agregar, modificar o eliminar debe iniciar sesión.</div>
+{% if user.is_authenticated %}
+<a href="{% url 'create_porfolio' %}" class="btn btn-primary">Agregar</a>
+{% endif %}
+{% for item in portfolios %}
+<div class="mt-4 cards">
+
+    <div class="card card-compact mycard bg-base-100 shadow-xl">
+        <figure><img src="{{ item.image }}" alt="Shoes" /></figure>
+        <div class="card-body">
+            <b class="card-title font-medium text-primary">{{ item.title }}</b>
+            <p>{{ item.description }}</p>
             {% if user.is_authenticated %}
-            <a href="{% url 'create_porfolio' %}" class="btn btn-primary">Agregar</a>
+            <div class="card-actions flex justify-end">
+                <a href="{% url 'update_port' item.id  %}" class="btn btn-sm btn-success">Modificar</a>
+                <a href="{% url 'delete_port' item.id  %}" class="btn btn-sm btn-danger">Eliminar</a>
+            </div>
             {% endif %}
         </div>
-    </div>
-</div>
-
-{% for item in portfolios %}
-
-<div class="card card-compact mycard bg-base-100 shadow-xl">
-    <figure><img src="{{ item.image }}" alt="Shoes" /></figure>
-    <div class="card-body">
-        <b class="card-title font-medium text-primary">{{ item.title }}</b>
-        <p>{{ item.description }}</p>
-        {% if user.is_authenticated %}
-        <div class="card-actions flex justify-end">
-            <a href="{% url 'update_port' item.id  %}" class="btn btn-sm btn-success">Modificar</a>
-            <a href="{% url 'delete_port' item.id  %}" class="btn btn-sm btn-danger">Eliminar</a>
-        </div>
-        {% endif %}
     </div>
 </div>
 

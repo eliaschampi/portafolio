@@ -8,7 +8,7 @@ urlpatterns = [
     path("portfolio/", PortfolioView.as_view(), name="portfolio"),
     path("portfolio/create/", CreatePortfolio.as_view(), name="create_porfolio"),
     path("portfolio/delete/<int:id>", destroyPortfolio, name="delete_port"),
-    path("portfolio/update/<int:id>",
+    path("portfolio/update/<int:pk>",
          UpdatePortfolio.as_view(), name="update_port"),
     path("conected/", ConectedView.as_view(), name="conected"),
     path("info/", InfoView.as_view(), name="info")

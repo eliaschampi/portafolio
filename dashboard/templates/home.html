@@ -1,0 +1,18 @@
+{% extends 'layouts/dash.html' %}
+{% load static %}
+
+{% block content %}
+<div class="hero min-h-screen bg-base-200">
+    <div class="hero-content flex-col lg:flex-row">
+        <img src="{% static 'images/me.jpg' %}" class="me max-w-sm rounded-lg shadow-2xl" />
+        <div>
+            <h1 class="text-5xl font-bold">Soy Elias Champi </h1>
+            <p class="py-6">Soy una persona con muchas habilidades informáticas, dispuesto a solucionar problemas de
+                gestión de información a través de desarrollo de aplicaciones o sistemas. Me gusta aplicar mis
+                conocimientos con responsabilidad, honradez y honestidad. Dispuesto a trabajos en equipo y posibilidad
+                de viajar</p>
+            <a href="{% url 'portfolio' %}" class="btn btn-primary">Ver portafolio</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

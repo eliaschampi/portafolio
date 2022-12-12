@@ -1,0 +1,54 @@
+{% extends 'layouts/dash.html' %}
+
+{% block content %}
+
+<div class="hero min-h-screen bg-base-200">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+        <div class="text-center lg:text-left">
+            <h1 class="text-5xl font-bold">Iniciar Sesión</h1>
+            <p class="py-6">
+
+                Bienvenido al panel de configuración del portafolio
+                <br />
+                <small>
+                    Ingrese <b>admin</b> como usuario y <b>admin</b> como Clave
+                </small>
+            </p>
+        </div>
+        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <form method="post" class="card-body">
+                {% csrf_token %}
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">{{ form.username.label }}</span>
+                    </label>
+                    {{ form.username }}
+                </div>
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">{{ form.password.label }}</span>
+                    </label>
+                    {{ form.password }}
+                </div>
+                {% if form.errors %}
+                <div class="alert alert-warning">
+                    {% for field in form %}
+                    {% for error in field.errors %}
+                    <p>{{ error|escape }}</p>
+                    {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                    <p>{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+                {% endif%}
+                <div class="form-control mt-6">
+                    <button type="submit" class="btn btn-primary">Iniciar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

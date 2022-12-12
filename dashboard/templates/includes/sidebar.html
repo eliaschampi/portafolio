@@ -1,0 +1,50 @@
+<section id="sidebar">
+    <a href="{% url 'dashboard' %}" class="brand">
+        <i class='bx bxs-smile'></i>
+        <span class="text">Portafolio</span>
+    </a>
+    <ul class="side-menu top">
+        <li class="active">
+            <a href="{% url 'dashboard' %}">
+                <i class='bx bxs-dashboard'></i>
+                <span class="text">Inicio</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'portfolio' %}">
+                <i class='bx bxs-shopping-bag-alt'></i>
+                <span class="text">Portafolio</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'conected' %}">
+                <i class='bx bxs-doughnut-chart'></i>
+                <span class="text">IPs conectados</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bxs-doughnut-chart'></i>
+                <span class="text">Información</span>
+            </a>
+        </li>
+
+    </ul>
+    <ul class="side-menu">
+        {% if not user.is_authenticated %}
+            <li>
+                <a href="{% url 'login' %}">
+                    <i class='bx bxs-cog'></i>
+                    <span class="text">Iniciar sesión</span>
+                </a>
+            </li>
+        {% else %}
+            <li>
+                <a href="{% url 'logout_view' %}" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Cerrar Sesión</span>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</section>

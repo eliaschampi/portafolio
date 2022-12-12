@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<!-- My CSS -->
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'css/dash.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	<title>Admin</title>
+</head>
+
+<body>
+	<!-- SIDEBAR -->
+	{% include 'includes/sidebar.html' %}
+	<!-- SIDEBAR -->
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		{% include 'includes/navbar.html' %}
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head mb-4">
+				<h1>Dashboard</h1>
+			</div>
+			{% block content %}
+			<!-- CONTENT -->
+			{% endblock %}
+		</main>
+		<!-- MAIN -->
+	</section>
+
+	<script src="{% static 'js/dash.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+{% extends 'layouts/dash.html' %}
+
+{% block content %}
+<div class="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
+    <form method="post" class="card-body">
+        {% csrf_token %}
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">{{ form.title.label }}</span>
+            </label>
+            {{ form.title }}
+        </div>
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">{{ form.description.label }}</span>
+            </label>
+            {{ form.description }}
+        </div>
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">{{ form.tags.label }}</span>
+            </label>
+            {{ form.tags }}
+        </div>
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">{{ form.image.label }}</span>
+            </label>
+            {{ form.image }}
+        </div>
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">{{ form.urlgithub.label }}</span>
+            </label>
+            {{ form.urlgithub }}
+        </div>
+        {% if form.errors %}
+        <div class="alert alert-warning">
+            {% for field in form %}
+            {% for error in field.errors %}
+            <p>{{ error|escape }}</p>
+            {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+            <p>{{ error|escape }}</p>
+            {% endfor %}
+        </div>
+        {% endif%}
+        <div class="form-control mt-6">
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,30 +1,30 @@
 <section id="sidebar">
     <a href="{% url 'dashboard' %}" class="brand">
-        <i class='bx bxs-smile'></i>
+        <i class='fas fa-user'></i>
         <span class="text">Portafolio</span>
     </a>
     <ul class="side-menu top">
         <li class="active">
             <a href="{% url 'dashboard' %}">
-                <i class='bx bxs-dashboard'></i>
+                <i class='fas fa-home'></i>
                 <span class="text">Inicio</span>
             </a>
         </li>
         <li>
             <a href="{% url 'portfolio' %}">
-                <i class='bx bxs-shopping-bag-alt'></i>
+                <i class='fas fa-book'></i>
                 <span class="text">Portafolio</span>
             </a>
         </li>
         <li>
             <a href="{% url 'conected' %}">
-                <i class='bx bxs-doughnut-chart'></i>
+                <i class='fas fa-desktop'></i>
                 <span class="text">IPs conectados</span>
             </a>
         </li>
         <li>
-            <a href="#">
-                <i class='bx bxs-doughnut-chart'></i>
+            <a href="{% url 'info' %}">
+                <i class='fas fa-info'></i>
                 <span class="text">Información</span>
             </a>
         </li>
@@ -34,14 +34,14 @@
         {% if not user.is_authenticated %}
             <li>
                 <a href="{% url 'login' %}">
-                    <i class='bx bxs-cog'></i>
+                    <i class='fas fa-key'></i>
                     <span class="text">Iniciar sesión</span>
                 </a>
             </li>
         {% else %}
             <li>
                 <a href="{% url 'logout_view' %}" class="logout">
-                    <i class='bx bxs-log-out-circle'></i>
+                    <i class='fas fa-lock'></i>
                     <span class="text">Cerrar Sesión</span>
                 </a>
             </li>

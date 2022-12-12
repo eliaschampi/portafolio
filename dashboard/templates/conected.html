@@ -1,6 +1,30 @@
 {% extends 'layouts/dash.html' %}
 
 {% block content %}
-hello
-{{ user }}
+<div class="overflow-x-auto">
+    <table class="table table-zebra w-full">
+        <!-- head -->
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Dirección IP</th>
+                <th>Fecha conectado</th>
+                <th>Ver detalle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- row 1 -->
+            {% for item in ips %}
+            <tr>
+                <th>{{ item.id }}</th>
+                <td>{{ item.ip_address }}</td>
+                <td>{{ item.created_at }}</td>
+                <td>
+                    <button class="btn btn-sm">Detalle</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

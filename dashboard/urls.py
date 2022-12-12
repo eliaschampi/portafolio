@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import LoginView, PortfolioView, CreatePortfolio, UpdatePortfolio, destroyPortfolio, ConectedView, HomeView, logout_view
+from .views import LoginView, PortfolioView, CreatePortfolio, InfoView, UpdatePortfolio, destroyPortfolio, ConectedView, HomeView, logout_view
 
 urlpatterns = [
     path("", HomeView.as_view(), name="dashboard"),
@@ -8,6 +8,8 @@ urlpatterns = [
     path("portfolio/", PortfolioView.as_view(), name="portfolio"),
     path("portfolio/create/", CreatePortfolio.as_view(), name="create_porfolio"),
     path("portfolio/delete/<int:id>", destroyPortfolio, name="delete_port"),
-    path("portfolio/update/<int:id>", UpdatePortfolio.as_view(), name="update_port"),
-    path("conected/", ConectedView.as_view(), name="conected")
+    path("portfolio/update/<int:id>",
+         UpdatePortfolio.as_view(), name="update_port"),
+    path("conected/", ConectedView.as_view(), name="conected"),
+    path("info/", InfoView.as_view(), name="info")
 ]

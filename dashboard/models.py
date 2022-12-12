@@ -24,7 +24,4 @@ class Email(models.Model):
 
 class Visiter(models.Model):
     ip_address = models.TextField(max_length=20)
-    city = models.TextField(max_length=30)
-    country = models.TextField(max_length=30)
-    country_code = models.TextField(max_length=10)
     created_at = models.DateTimeField(auto_now_add=True)

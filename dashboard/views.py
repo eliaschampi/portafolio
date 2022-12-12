@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView, UpdateView
 from .forms import LoginForm, PortfolioForm
-from .models import Portfolio
+from .models import Portfolio, Visiter
 
 
 class LoginView(FormView):
@@ -46,6 +46,11 @@ def logout_view(request):
 class HomeView(TemplateView):
 
     template_name = "home.html"
+
+    def dispatch(self, request, *args, **kwargs):
+        ip_address = request.META.get('REMOTE_ADDR')
+        Visiter.objects.get_or_create(ip_address=ip_address)
+        return super().dispatch(request, *args, **kwargs)
 
 
 class PortfolioView(TemplateView):
@@ -100,3 +105,15 @@ def destroyPortfolio(request, id):
 class ConectedView(LoginRequiredMixin, TemplateView):
 
     template_name = "conected.html"
+
+    def get_context_data(self, **kwargs):
+        
+        context = super().get_context_data(**kwargs)
+
+        context['ips'] = Visiter.objects.order_by("created_at")
+
+        return context
+
+class InfoView(TemplateView):
+
+    template_name = "info.html"

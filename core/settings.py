@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@^7h60eb5d@#(qm=hw=@e%krc6*_^fxndi#o466nvd0ty&uaf#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOST = ['*']
+ALLOWED_HOST = ['portafolio-production-df68.up.railway.app', '127.0.0.1']
 
 AUTH_USER_MODEL = "dashboard.User"
 

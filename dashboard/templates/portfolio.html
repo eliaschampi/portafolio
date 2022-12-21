@@ -8,7 +8,7 @@
 <a href="{% url 'create_porfolio' %}" class="btn btn-primary">Agregar</a>
 {% endif %}
 {% for item in portfolios %}
-<div class="mt-4 cards">
+<div class="mt-4 grid grid-cols-4 gap-4">
 
     <div class="card card-compact mycard bg-base-100 shadow-xl">
         <figure><img src="{{ item.image }}" alt="Shoes" /></figure>

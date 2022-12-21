@@ -39,7 +39,7 @@ la pagina publica se ecuentra en el folder **dashboard**
 
 ### caracteristicas
 * Esta desarrollado con buenas practicas de programación
-* Posee autenticación, Medlewares, Login, dashboard
+* Posee autenticación, Middlewares, Login, dashboard
 * Gestion de IP de los usuarios
 * CRUD de portafolios (Listar, Crear, Actualizar, Modificar)
 * Diseño UI elegante

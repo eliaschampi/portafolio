@@ -16,6 +16,7 @@
             <b class="card-title font-medium text-primary">{{ item.title }}</b>
             <p>{{ item.description }}</p>
             {% if user.is_authenticated %}
+            <a href="{{ item.urlgithub }}" target="_blank" class="btn btn-accent btn-xs">Link de Github</a>
             <div class="card-actions flex justify-end">
                 <a href="{% url 'update_port' item.id  %}" class="btn btn-sm btn-success">Modificar</a>
                 <a href="{% url 'delete_port' item.id  %}" class="btn btn-sm btn-danger">Eliminar</a>

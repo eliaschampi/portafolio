@@ -49,7 +49,7 @@ class HomeView(TemplateView):
 
     def dispatch(self, request, *args, **kwargs):
         ip_address = request.META.get('REMOTE_ADDR')
-        Visiter.objects.get_or_create(ip_address=ip_address)
+        Visiter.objects.create(ip_address=ip_address)
         return super().dispatch(request, *args, **kwargs)
 
 
